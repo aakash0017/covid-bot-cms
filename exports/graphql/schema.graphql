@@ -41,140 +41,156 @@ type UserPermissionsPasswordPayload {
   ok: Boolean!
 }
 
-type Test {
+type Data {
   id: ID!
   _id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
   Name: String
   Email: String
-  Phoneno: Int
+  Mobile: Long
+  City: String
+  State: String
+  Resources: String
+  Description: String
   published_at: DateTime
 }
 
-type TestConnection {
-  values: [Test]
-  groupBy: TestGroupBy
-  aggregate: TestAggregator
+type DataConnection {
+  values: [Data]
+  groupBy: DataGroupBy
+  aggregate: DataAggregator
 }
 
-type TestAggregator {
+type DataAggregator {
   count: Int
   totalCount: Int
-  sum: TestAggregatorSum
-  avg: TestAggregatorAvg
-  min: TestAggregatorMin
-  max: TestAggregatorMax
 }
 
-type TestAggregatorSum {
-  Phoneno: Float
+type DataGroupBy {
+  id: [DataConnectionId]
+  _id: [DataConnection_id]
+  createdAt: [DataConnectionCreatedAt]
+  updatedAt: [DataConnectionUpdatedAt]
+  Name: [DataConnectionName]
+  Email: [DataConnectionEmail]
+  Mobile: [DataConnectionMobile]
+  City: [DataConnectionCity]
+  State: [DataConnectionState]
+  Resources: [DataConnectionResources]
+  Description: [DataConnectionDescription]
+  published_at: [DataConnectionPublished_at]
 }
 
-type TestAggregatorAvg {
-  Phoneno: Float
-}
-
-type TestAggregatorMin {
-  Phoneno: Float
-}
-
-type TestAggregatorMax {
-  Phoneno: Float
-}
-
-type TestGroupBy {
-  id: [TestConnectionId]
-  _id: [TestConnection_id]
-  createdAt: [TestConnectionCreatedAt]
-  updatedAt: [TestConnectionUpdatedAt]
-  Name: [TestConnectionName]
-  Email: [TestConnectionEmail]
-  Phoneno: [TestConnectionPhoneno]
-  published_at: [TestConnectionPublished_at]
-}
-
-type TestConnectionId {
+type DataConnectionId {
   key: ID
-  connection: TestConnection
+  connection: DataConnection
 }
 
-type TestConnection_id {
+type DataConnection_id {
   key: ID
-  connection: TestConnection
+  connection: DataConnection
 }
 
-type TestConnectionCreatedAt {
+type DataConnectionCreatedAt {
   key: DateTime
-  connection: TestConnection
+  connection: DataConnection
 }
 
-type TestConnectionUpdatedAt {
+type DataConnectionUpdatedAt {
   key: DateTime
-  connection: TestConnection
+  connection: DataConnection
 }
 
-type TestConnectionName {
+type DataConnectionName {
   key: String
-  connection: TestConnection
+  connection: DataConnection
 }
 
-type TestConnectionEmail {
+type DataConnectionEmail {
   key: String
-  connection: TestConnection
+  connection: DataConnection
 }
 
-type TestConnectionPhoneno {
-  key: Int
-  connection: TestConnection
+type DataConnectionMobile {
+  key: ID
+  connection: DataConnection
 }
 
-type TestConnectionPublished_at {
+type DataConnectionCity {
+  key: String
+  connection: DataConnection
+}
+
+type DataConnectionState {
+  key: String
+  connection: DataConnection
+}
+
+type DataConnectionResources {
+  key: String
+  connection: DataConnection
+}
+
+type DataConnectionDescription {
+  key: String
+  connection: DataConnection
+}
+
+type DataConnectionPublished_at {
   key: DateTime
-  connection: TestConnection
+  connection: DataConnection
 }
 
-input TestInput {
+input DatumInput {
   Name: String
   Email: String
-  Phoneno: Int
+  Mobile: Long
+  City: String
+  State: String
+  Resources: String
+  Description: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input editTestInput {
+input editDatumInput {
   Name: String
   Email: String
-  Phoneno: Int
+  Mobile: Long
+  City: String
+  State: String
+  Resources: String
+  Description: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input createTestInput {
-  data: TestInput
+input createDatumInput {
+  data: DatumInput
 }
 
-type createTestPayload {
-  test: Test
+type createDatumPayload {
+  datum: Data
 }
 
-input updateTestInput {
+input updateDatumInput {
   where: InputID
-  data: editTestInput
+  data: editDatumInput
 }
 
-type updateTestPayload {
-  test: Test
+type updateDatumPayload {
+  datum: Data
 }
 
-input deleteTestInput {
+input deleteDatumInput {
   where: InputID
 }
 
-type deleteTestPayload {
-  test: Test
+type deleteDatumPayload {
+  datum: Data
 }
 
 type I18NLocale {
@@ -670,7 +686,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Test | TestConnection | TestAggregator | TestAggregatorSum | TestAggregatorAvg | TestAggregatorMin | TestAggregatorMax | TestGroupBy | TestConnectionId | TestConnection_id | TestConnectionCreatedAt | TestConnectionUpdatedAt | TestConnectionName | TestConnectionEmail | TestConnectionPhoneno | TestConnectionPublished_at | createTestPayload | updateTestPayload | deleteTestPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Data | DataConnection | DataAggregator | DataGroupBy | DataConnectionId | DataConnection_id | DataConnectionCreatedAt | DataConnectionUpdatedAt | DataConnectionName | DataConnectionEmail | DataConnectionMobile | DataConnectionCity | DataConnectionState | DataConnectionResources | DataConnectionDescription | DataConnectionPublished_at | createDatumPayload | updateDatumPayload | deleteDatumPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
@@ -689,9 +705,9 @@ type AdminUser {
 }
 
 type Query {
-  test(id: ID!, publicationState: PublicationState): Test
-  tests(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Test]
-  testsConnection(sort: String, limit: Int, start: Int, where: JSON): TestConnection
+  datum(id: ID!, publicationState: PublicationState): Data
+  data(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Data]
+  dataConnection(sort: String, limit: Int, start: Int, where: JSON): DataConnection
   files(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UploadFile]
   filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
   role(id: ID!, publicationState: PublicationState): UsersPermissionsRole
@@ -708,9 +724,9 @@ type Query {
 }
 
 type Mutation {
-  createTest(input: createTestInput): createTestPayload
-  updateTest(input: updateTestInput): updateTestPayload
-  deleteTest(input: deleteTestInput): deleteTestPayload
+  createDatum(input: createDatumInput): createDatumPayload
+  updateDatum(input: updateDatumInput): updateDatumPayload
+  deleteDatum(input: deleteDatumInput): deleteDatumPayload
 
   """Delete one file"""
   deleteFile(input: deleteFileInput): deleteFilePayload

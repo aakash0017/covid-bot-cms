@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "tests",
+  "collectionName": "data",
   "info": {
-    "name": "Test"
+    "name": "data"
   },
   "options": {
     "increments": true,
@@ -17,8 +17,20 @@
     "Email": {
       "type": "email"
     },
-    "Phoneno": {
-      "type": "integer"
+    "Mobile": {
+      "type": "biginteger"
+    },
+    "City": {
+      "type": "string"
+    },
+    "State": {
+      "type": "string"
+    },
+    "Resources": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
     }
   }
 }
