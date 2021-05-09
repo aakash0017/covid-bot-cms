@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/chat-infos",
+      "handler": "chat-info.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/chat-infos/count",
+      "handler": "chat-info.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/chat-infos/:id",
+      "handler": "chat-info.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/chat-infos",
+      "handler": "chat-info.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/chat-infos/:id",
+      "handler": "chat-info.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/chat-infos/:id",
+      "handler": "chat-info.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -41,6 +41,122 @@ type UserPermissionsPasswordPayload {
   ok: Boolean!
 }
 
+type ChatInfo {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  chatID: String
+  updateID: String
+  Text: String
+  published_at: DateTime
+}
+
+type ChatInfoConnection {
+  values: [ChatInfo]
+  groupBy: ChatInfoGroupBy
+  aggregate: ChatInfoAggregator
+}
+
+type ChatInfoAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ChatInfoGroupBy {
+  id: [ChatInfoConnectionId]
+  _id: [ChatInfoConnection_id]
+  createdAt: [ChatInfoConnectionCreatedAt]
+  updatedAt: [ChatInfoConnectionUpdatedAt]
+  chatID: [ChatInfoConnectionChatID]
+  updateID: [ChatInfoConnectionUpdateID]
+  Text: [ChatInfoConnectionText]
+  published_at: [ChatInfoConnectionPublished_at]
+}
+
+type ChatInfoConnectionId {
+  key: ID
+  connection: ChatInfoConnection
+}
+
+type ChatInfoConnection_id {
+  key: ID
+  connection: ChatInfoConnection
+}
+
+type ChatInfoConnectionCreatedAt {
+  key: DateTime
+  connection: ChatInfoConnection
+}
+
+type ChatInfoConnectionUpdatedAt {
+  key: DateTime
+  connection: ChatInfoConnection
+}
+
+type ChatInfoConnectionChatID {
+  key: String
+  connection: ChatInfoConnection
+}
+
+type ChatInfoConnectionUpdateID {
+  key: String
+  connection: ChatInfoConnection
+}
+
+type ChatInfoConnectionText {
+  key: String
+  connection: ChatInfoConnection
+}
+
+type ChatInfoConnectionPublished_at {
+  key: DateTime
+  connection: ChatInfoConnection
+}
+
+input ChatInfoInput {
+  chatID: String
+  updateID: String
+  Text: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editChatInfoInput {
+  chatID: String
+  updateID: String
+  Text: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createChatInfoInput {
+  data: ChatInfoInput
+}
+
+type createChatInfoPayload {
+  chatInfo: ChatInfo
+}
+
+input updateChatInfoInput {
+  where: InputID
+  data: editChatInfoInput
+}
+
+type updateChatInfoPayload {
+  chatInfo: ChatInfo
+}
+
+input deleteChatInfoInput {
+  where: InputID
+}
+
+type deleteChatInfoPayload {
+  chatInfo: ChatInfo
+}
+
 type Data {
   id: ID!
   _id: ID!
@@ -686,7 +802,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Data | DataConnection | DataAggregator | DataGroupBy | DataConnectionId | DataConnection_id | DataConnectionCreatedAt | DataConnectionUpdatedAt | DataConnectionName | DataConnectionEmail | DataConnectionMobile | DataConnectionCity | DataConnectionState | DataConnectionResources | DataConnectionDescription | DataConnectionPublished_at | createDatumPayload | updateDatumPayload | deleteDatumPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | ChatInfo | ChatInfoConnection | ChatInfoAggregator | ChatInfoGroupBy | ChatInfoConnectionId | ChatInfoConnection_id | ChatInfoConnectionCreatedAt | ChatInfoConnectionUpdatedAt | ChatInfoConnectionChatID | ChatInfoConnectionUpdateID | ChatInfoConnectionText | ChatInfoConnectionPublished_at | createChatInfoPayload | updateChatInfoPayload | deleteChatInfoPayload | Data | DataConnection | DataAggregator | DataGroupBy | DataConnectionId | DataConnection_id | DataConnectionCreatedAt | DataConnectionUpdatedAt | DataConnectionName | DataConnectionEmail | DataConnectionMobile | DataConnectionCity | DataConnectionState | DataConnectionResources | DataConnectionDescription | DataConnectionPublished_at | createDatumPayload | updateDatumPayload | deleteDatumPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
@@ -705,6 +821,9 @@ type AdminUser {
 }
 
 type Query {
+  chatInfo(id: ID!, publicationState: PublicationState): ChatInfo
+  chatInfos(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ChatInfo]
+  chatInfosConnection(sort: String, limit: Int, start: Int, where: JSON): ChatInfoConnection
   datum(id: ID!, publicationState: PublicationState): Data
   data(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Data]
   dataConnection(sort: String, limit: Int, start: Int, where: JSON): DataConnection
@@ -724,6 +843,9 @@ type Query {
 }
 
 type Mutation {
+  createChatInfo(input: createChatInfoInput): createChatInfoPayload
+  updateChatInfo(input: updateChatInfoInput): updateChatInfoPayload
+  deleteChatInfo(input: deleteChatInfoInput): deleteChatInfoPayload
   createDatum(input: createDatumInput): createDatumPayload
   updateDatum(input: updateDatumInput): updateDatumPayload
   deleteDatum(input: deleteDatumInput): deleteDatumPayload
