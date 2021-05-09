@@ -41,120 +41,174 @@ type UserPermissionsPasswordPayload {
   ok: Boolean!
 }
 
-type ChatInfo {
+type BetaObject {
   id: ID!
   _id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
+  name: String
+  mobile: String
+  email: String
+  city: String
+  state: String
+  resources: String
+  description: String
   chatID: String
-  updateID: String
-  Text: String
+  hasPlasma: String
   published_at: DateTime
 }
 
-type ChatInfoConnection {
-  values: [ChatInfo]
-  groupBy: ChatInfoGroupBy
-  aggregate: ChatInfoAggregator
+type BetaObjectConnection {
+  values: [BetaObject]
+  groupBy: BetaObjectGroupBy
+  aggregate: BetaObjectAggregator
 }
 
-type ChatInfoAggregator {
+type BetaObjectAggregator {
   count: Int
   totalCount: Int
 }
 
-type ChatInfoGroupBy {
-  id: [ChatInfoConnectionId]
-  _id: [ChatInfoConnection_id]
-  createdAt: [ChatInfoConnectionCreatedAt]
-  updatedAt: [ChatInfoConnectionUpdatedAt]
-  chatID: [ChatInfoConnectionChatID]
-  updateID: [ChatInfoConnectionUpdateID]
-  Text: [ChatInfoConnectionText]
-  published_at: [ChatInfoConnectionPublished_at]
+type BetaObjectGroupBy {
+  id: [BetaObjectConnectionId]
+  _id: [BetaObjectConnection_id]
+  createdAt: [BetaObjectConnectionCreatedAt]
+  updatedAt: [BetaObjectConnectionUpdatedAt]
+  name: [BetaObjectConnectionName]
+  mobile: [BetaObjectConnectionMobile]
+  email: [BetaObjectConnectionEmail]
+  city: [BetaObjectConnectionCity]
+  state: [BetaObjectConnectionState]
+  resources: [BetaObjectConnectionResources]
+  description: [BetaObjectConnectionDescription]
+  chatID: [BetaObjectConnectionChatID]
+  hasPlasma: [BetaObjectConnectionHasPlasma]
+  published_at: [BetaObjectConnectionPublished_at]
 }
 
-type ChatInfoConnectionId {
+type BetaObjectConnectionId {
   key: ID
-  connection: ChatInfoConnection
+  connection: BetaObjectConnection
 }
 
-type ChatInfoConnection_id {
+type BetaObjectConnection_id {
   key: ID
-  connection: ChatInfoConnection
+  connection: BetaObjectConnection
 }
 
-type ChatInfoConnectionCreatedAt {
+type BetaObjectConnectionCreatedAt {
   key: DateTime
-  connection: ChatInfoConnection
+  connection: BetaObjectConnection
 }
 
-type ChatInfoConnectionUpdatedAt {
+type BetaObjectConnectionUpdatedAt {
   key: DateTime
-  connection: ChatInfoConnection
+  connection: BetaObjectConnection
 }
 
-type ChatInfoConnectionChatID {
+type BetaObjectConnectionName {
   key: String
-  connection: ChatInfoConnection
+  connection: BetaObjectConnection
 }
 
-type ChatInfoConnectionUpdateID {
+type BetaObjectConnectionMobile {
   key: String
-  connection: ChatInfoConnection
+  connection: BetaObjectConnection
 }
 
-type ChatInfoConnectionText {
+type BetaObjectConnectionEmail {
   key: String
-  connection: ChatInfoConnection
+  connection: BetaObjectConnection
 }
 
-type ChatInfoConnectionPublished_at {
+type BetaObjectConnectionCity {
+  key: String
+  connection: BetaObjectConnection
+}
+
+type BetaObjectConnectionState {
+  key: String
+  connection: BetaObjectConnection
+}
+
+type BetaObjectConnectionResources {
+  key: String
+  connection: BetaObjectConnection
+}
+
+type BetaObjectConnectionDescription {
+  key: String
+  connection: BetaObjectConnection
+}
+
+type BetaObjectConnectionChatID {
+  key: String
+  connection: BetaObjectConnection
+}
+
+type BetaObjectConnectionHasPlasma {
+  key: String
+  connection: BetaObjectConnection
+}
+
+type BetaObjectConnectionPublished_at {
   key: DateTime
-  connection: ChatInfoConnection
+  connection: BetaObjectConnection
 }
 
-input ChatInfoInput {
+input BetaObjectInput {
+  name: String
+  mobile: String
+  email: String
+  city: String
+  state: String
+  resources: String
+  description: String
   chatID: String
-  updateID: String
-  Text: String
+  hasPlasma: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input editChatInfoInput {
+input editBetaObjectInput {
+  name: String
+  mobile: String
+  email: String
+  city: String
+  state: String
+  resources: String
+  description: String
   chatID: String
-  updateID: String
-  Text: String
+  hasPlasma: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input createChatInfoInput {
-  data: ChatInfoInput
+input createBetaObjectInput {
+  data: BetaObjectInput
 }
 
-type createChatInfoPayload {
-  chatInfo: ChatInfo
+type createBetaObjectPayload {
+  betaObject: BetaObject
 }
 
-input updateChatInfoInput {
+input updateBetaObjectInput {
   where: InputID
-  data: editChatInfoInput
+  data: editBetaObjectInput
 }
 
-type updateChatInfoPayload {
-  chatInfo: ChatInfo
+type updateBetaObjectPayload {
+  betaObject: BetaObject
 }
 
-input deleteChatInfoInput {
+input deleteBetaObjectInput {
   where: InputID
 }
 
-type deleteChatInfoPayload {
-  chatInfo: ChatInfo
+type deleteBetaObjectPayload {
+  betaObject: BetaObject
 }
 
 type Data {
@@ -802,7 +856,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | ChatInfo | ChatInfoConnection | ChatInfoAggregator | ChatInfoGroupBy | ChatInfoConnectionId | ChatInfoConnection_id | ChatInfoConnectionCreatedAt | ChatInfoConnectionUpdatedAt | ChatInfoConnectionChatID | ChatInfoConnectionUpdateID | ChatInfoConnectionText | ChatInfoConnectionPublished_at | createChatInfoPayload | updateChatInfoPayload | deleteChatInfoPayload | Data | DataConnection | DataAggregator | DataGroupBy | DataConnectionId | DataConnection_id | DataConnectionCreatedAt | DataConnectionUpdatedAt | DataConnectionName | DataConnectionEmail | DataConnectionMobile | DataConnectionCity | DataConnectionState | DataConnectionResources | DataConnectionDescription | DataConnectionPublished_at | createDatumPayload | updateDatumPayload | deleteDatumPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | BetaObject | BetaObjectConnection | BetaObjectAggregator | BetaObjectGroupBy | BetaObjectConnectionId | BetaObjectConnection_id | BetaObjectConnectionCreatedAt | BetaObjectConnectionUpdatedAt | BetaObjectConnectionName | BetaObjectConnectionMobile | BetaObjectConnectionEmail | BetaObjectConnectionCity | BetaObjectConnectionState | BetaObjectConnectionResources | BetaObjectConnectionDescription | BetaObjectConnectionChatID | BetaObjectConnectionHasPlasma | BetaObjectConnectionPublished_at | createBetaObjectPayload | updateBetaObjectPayload | deleteBetaObjectPayload | Data | DataConnection | DataAggregator | DataGroupBy | DataConnectionId | DataConnection_id | DataConnectionCreatedAt | DataConnectionUpdatedAt | DataConnectionName | DataConnectionEmail | DataConnectionMobile | DataConnectionCity | DataConnectionState | DataConnectionResources | DataConnectionDescription | DataConnectionPublished_at | createDatumPayload | updateDatumPayload | deleteDatumPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
@@ -821,9 +875,9 @@ type AdminUser {
 }
 
 type Query {
-  chatInfo(id: ID!, publicationState: PublicationState): ChatInfo
-  chatInfos(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ChatInfo]
-  chatInfosConnection(sort: String, limit: Int, start: Int, where: JSON): ChatInfoConnection
+  betaObject(id: ID!, publicationState: PublicationState): BetaObject
+  betaObjects(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [BetaObject]
+  betaObjectsConnection(sort: String, limit: Int, start: Int, where: JSON): BetaObjectConnection
   datum(id: ID!, publicationState: PublicationState): Data
   data(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Data]
   dataConnection(sort: String, limit: Int, start: Int, where: JSON): DataConnection
@@ -843,9 +897,9 @@ type Query {
 }
 
 type Mutation {
-  createChatInfo(input: createChatInfoInput): createChatInfoPayload
-  updateChatInfo(input: updateChatInfoInput): updateChatInfoPayload
-  deleteChatInfo(input: deleteChatInfoInput): deleteChatInfoPayload
+  createBetaObject(input: createBetaObjectInput): createBetaObjectPayload
+  updateBetaObject(input: updateBetaObjectInput): updateBetaObjectPayload
+  deleteBetaObject(input: deleteBetaObjectInput): deleteBetaObjectPayload
   createDatum(input: createDatumInput): createDatumPayload
   updateDatum(input: updateDatumInput): updateDatumPayload
   deleteDatum(input: deleteDatumInput): deleteDatumPayload

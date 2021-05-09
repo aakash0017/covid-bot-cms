@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "beta_objects",
+  "info": {
+    "name": "beta_object"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "resources": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "chatID": {
+      "type": "string"
+    },
+    "hasPlasma": {
+      "type": "string"
+    }
+  }
+}

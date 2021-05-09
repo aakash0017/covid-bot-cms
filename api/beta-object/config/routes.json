@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/chat-infos",
-      "handler": "chat-info.find",
+      "path": "/beta-objects",
+      "handler": "beta-object.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/chat-infos/count",
-      "handler": "chat-info.count",
+      "path": "/beta-objects/count",
+      "handler": "beta-object.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/chat-infos/:id",
-      "handler": "chat-info.findOne",
+      "path": "/beta-objects/:id",
+      "handler": "beta-object.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/chat-infos",
-      "handler": "chat-info.create",
+      "path": "/beta-objects",
+      "handler": "beta-object.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/chat-infos/:id",
-      "handler": "chat-info.update",
+      "path": "/beta-objects/:id",
+      "handler": "beta-object.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/chat-infos/:id",
-      "handler": "chat-info.delete",
+      "path": "/beta-objects/:id",
+      "handler": "beta-object.delete",
       "config": {
         "policies": []
       }
